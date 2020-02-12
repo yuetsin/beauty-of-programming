@@ -1,0 +1,1 @@
+#define GetCPUTickCount() __rdtsc()
