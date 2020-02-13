@@ -216,7 +216,7 @@ Windows 下的 `QueryPerformanceCounter` 和 `QueryPerformanceFrequency`。
 
 POSIX 下的 `clock_gettime`，都是可以高精度计时的。
 
-## Acknowledgements
+## References
 
 * https://zhuanlan.zhihu.com/p/24311810
 
