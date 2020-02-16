@@ -2,7 +2,7 @@
 
 from functools import lru_cache
 
-books = (2, 2, 2, 1, 1)
+books = (7, 6, 3, 2, 1)
 
 per_price = 8
 
