@@ -9,8 +9,8 @@ N = int(input('N = ? >>>'))
 loss_num = random.randint(1, N)
 loss_machine = random.randint(0, 1) == 0
 
-M1 = list(range(N))
-M2 = list(range(N))
+M1 = list(range(1, N + 1))
+M2 = list(range(1, N + 1))
 
 if loss_machine:
     M1.remove(loss_num)
