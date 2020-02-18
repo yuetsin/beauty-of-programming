@@ -16,3 +16,6 @@ class Drink:
 
     def __str__(self):
         return "Drink(name=%s, volume=%d, max_amount=%d, satisfactoriness=%d)" % (self.name, self.volume, self.max_amount, self.satisfactoriness)
+
+    def __repr__(self):
+        return str(self)

@@ -10,3 +10,6 @@ drink_list = [
     Drink("纯净水", 2 ** 5, 42, 8),
     Drink("花露水", 2 ** 2, 5, 4)
 ]
+
+if __name__ == '__main__':
+    print(sorted(drink_list, key=lambda v: v.volume, reverse=True))

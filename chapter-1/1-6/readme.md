@@ -80,7 +80,9 @@ $Opt(x, n) = -\inf,\ x \ne 0 $。
 
 ### Think it over
 
-这题其实给了一些障眼法。因为实际上，「满意度」给了我们一种错觉，好像应该考虑到研究院员工们的反应。
+这题其实给了一些障眼法。因为实际上，「满意度」给了我们一种错觉，好像是个统计数值一样。
+
+然而，这里的满意度只是简单的可叠加，跟体积、数量没有什么大的区别。
 
 实际上，所谓「满意度」也就是研究院冰柜中，每单位数量饮料的价值。
 
@@ -106,3 +108,42 @@ $Opt(x, n) = -\inf,\ x \ne 0 $。
 
 ![image-20200218122558014](readme.assets/image-20200218122558014.png)
 
+### Tricky Solution
+
+仔细审视一下题目的条件…我们会发现一个怪异的、没有被用到的条件。
+
+那就是所有饮料容积都是 $2$ 的整数次幂。
+
+这个条件能如何简化计算呢？我们把信息整理一下，把所有的饮料按照单位容积进行降序排序：
+
+```python
+print(sorted(drink_list, key=lambda v: v.volume, reverse=True))
+```
+
+得到的结果是：
+
+```python
+[
+    Drink(name=可口可乐, volume=32, max_amount=25, satisfactoriness=10), 
+    Drink(name=纯净水, volume=32, max_amount=42, satisfactoriness=8), 
+    Drink(name=王老吉, volume=8, max_amount=10, satisfactoriness=8), 
+    Drink(name=鲜橙多, volume=4, max_amount=15, satisfactoriness=7), 
+    Drink(name=花露水, volume=4, max_amount=5, satisfactoriness=4), 
+    Drink(name=酸奶, volume=2, max_amount=40, satisfactoriness=9),
+    Drink(name=牛奶, volume=1, max_amount=10, satisfactoriness=4)
+]
+```
+
+现在考虑我们的目标容积 $V$。从一开始，假如我们的 $V \mod 2^1$ 非 0，那么为了填满这种空位，我们必须至少购买一瓶容积为 $2^0$ 的饮料。那么，我们当然应该（贪婪地）购买满意度最高的那一种了。
+
+但是，假如我们 $V \mod 2^2$ 非 0，那么我们不光考虑到可以购买一单位的 $2^1$ 饮料，还可以使用双倍的 $2^0$ 饮料组合起来，选出其中满意度最高的组合。
+
+其实我们可以直接把剩余的 $2^i$ 个饮料进行组合，直接和 $2^{i + 1}$ 级别的饮料进行比较。
+
+不过要注意 STC 的库存问题。
+
+## References
+
+* https://www.cnblogs.com/superxuezhazha/p/5746922.html
+* https://blog.csdn.net/mengxiangjia_linxi/article/details/78153115
+* https://blog.csdn.net/weixin_38483589/article/details/84147376
