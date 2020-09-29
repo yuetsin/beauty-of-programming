@@ -146,7 +146,7 @@ def nim(n: int, m: int) -> bool:
 可以证明，算法的通项公式是：
 
 * $a_n = \lfloor a \times n \rfloor$，其中 $a = \dfrac {1 + \sqrt{5}} 2$；
-* $b_n = \lfloor b \times n \rfloor$，其中 $b = \dfrac {3 + \sqrt{5}} 2。$
+* $b_n = \lfloor b \times n \rfloor$，其中 $b = \dfrac {3 + \sqrt{5}} 2$。
 
 > 古怪，古怪。
 
